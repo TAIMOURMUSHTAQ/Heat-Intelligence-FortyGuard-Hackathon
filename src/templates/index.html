@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Heat Intelligence — FortyGuard Hackathon'26</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+
+<div class="scanline" aria-hidden="true"></div>
+
+<header class="topbar">
+  <div class="brand">
+    <span class="brand-mark" aria-hidden="true"></span>
+    <div class="brand-text">
+      <span class="brand-title">HEAT&nbsp;INTELLIGENCE</span>
+      <span class="brand-sub">Track&nbsp;05 · Model&nbsp;Designing · FortyGuard&nbsp;Hackathon'26</span>
+    </div>
+  </div>
+  <div class="topbar-meta">
+    <div class="meta-item">
+      <span class="meta-label">LOCATION</span>
+      <span class="meta-value mono" id="meta-location">—</span>
+    </div>
+    <div class="meta-item">
+      <span class="meta-label">AS OF</span>
+      <span class="meta-value mono" id="meta-asof">—</span>
+    </div>
+    <div class="meta-item">
+      <span class="meta-label">SOURCE</span>
+      <span class="meta-value mono" id="meta-source">—</span>
+    </div>
+    <button class="refresh-btn" id="refresh-btn" title="Refresh now" aria-label="Refresh now">
+      <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M21 12a9 9 0 1 1-2.64-6.36" stroke-linecap="round"/>
+        <path d="M21 3v6h-6" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </button>
+  </div>
+</header>
+
+<main class="grid" id="app-root">
+
+  <!-- Loading state -->
+  <section class="state-panel" id="state-loading">
+    <div class="pulse-dot"></div>
+    <p>Reading the instruments — pulling temperature history, training the three models…</p>
+  </section>
+
+  <!-- Error state -->
+  <section class="state-panel state-panel--error" id="state-error" hidden>
+    <p class="error-title">Couldn't reach the heat intelligence service.</p>
+    <p class="error-detail" id="error-detail">—</p>
+    <button class="retry-btn" id="retry-btn">Try again</button>
+  </section>
+
+  <!-- Main content -->
+  <div id="app-content" hidden>
+
+    <section class="hero panel">
+      <div class="hero-reading">
+        <span class="hero-label">CURRENT TEMPERATURE</span>
+        <div class="hero-temp">
+          <span class="hero-temp-value" id="hero-temp">—</span>
+          <span class="hero-temp-unit">°C</span>
+        </div>
+        <div class="risk-badge" id="risk-badge">
+          <span class="risk-dot" id="risk-dot"></span>
+          <span id="risk-label">—</span>
+          <span class="risk-confidence" id="risk-confidence"></span>
+        </div>
+      </div>
+
+      <div class="gauge-wrap">
+        <span class="hero-label">NEXT 1H RISK SCALE</span>
+        <div class="gauge" id="gauge">
+          <div class="gauge-track"></div>
+          <div class="gauge-marker" id="gauge-marker"><span class="gauge-marker-value mono" id="gauge-marker-value"></span></div>
+        </div>
+        <div class="gauge-ticks">
+          <span>LOW</span><span>MODERATE</span><span>HIGH</span><span>VERY HIGH</span><span>EXTREME</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="panel forecast-panel">
+      <div class="panel-header">
+        <h2>FORECAST — NEXT 6H</h2>
+        <span class="panel-sub mono" id="forecast-range">—</span>
+      </div>
+      <svg id="forecast-chart" viewBox="0 0 640 220" preserveAspectRatio="none" aria-label="Temperature forecast chart"></svg>
+      <div class="forecast-legend" id="forecast-legend"></div>
+    </section>
+
+    <section class="panel anomaly-panel">
+      <div class="panel-header">
+        <h2>ANOMALY LOG</h2>
+        <span class="panel-sub mono" id="anomaly-rate">—</span>
+      </div>
+      <ul class="anomaly-list" id="anomaly-list"></ul>
+      <p class="anomaly-empty" id="anomaly-empty" hidden>No anomalies flagged in recent history.</p>
+    </section>
+
+  </div>
+</main>
+
+<footer class="footer">
+  <span>Heat Forecasting · Anomaly Detection · Risk Classification — one shared feature pipeline, three model heads</span>
+  <span class="mono" id="footer-refresh">auto-refresh 60s</span>
+</footer>
+
+<script src="{{ url_for('static', filename='js/dashboard.js') }}"></script>
+</body>
+</html>
