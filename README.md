@@ -60,12 +60,24 @@ small Python/Flask apps. Any of these is enough for a hackathon demo link;
 you don't need AWS/GCP scale infrastructure for this.
 
 Two small things to do before deploying (not needed for local use):
-1. Add `gunicorn` to `requirements.txt` and use `gunicorn api:app` as the
-   start command — Flask's own dev server (`debug=True`) isn't meant to be
-   exposed publicly.
+1. Use `gunicorn --chdir src api:app` as the start command — Flask's own
+  development server isn't meant to be exposed publicly. A ready-to-use
+  `render.yaml` is included for Render.
 2. Set `FORTYGUARD_API_KEY` as an environment variable in the host's
    dashboard instead of hardcoding it in `data_client.py`, so the key isn't
    sitting in your public GitHub repo if you push one.
+
+### Deploy on Render
+
+1. Push this folder to a GitHub repository (never commit the API key).
+2. In Render, choose **New > Blueprint** and select the repository.
+3. Render reads `render.yaml`, installs `requirements.txt`, and starts the
+  dashboard with Gunicorn.
+4. In the service's Environment settings, add `FORTYGUARD_API_KEY` if the
+  FortyGuard endpoint is available. The app remains usable with Open-Meteo
+  fallback when that variable is omitted or the endpoint is unavailable.
+5. Open the generated `https://...onrender.com` URL and append `/health` to
+  confirm the deployment returns `{"status":"ok"}`.
 
 ## Quickstart
 

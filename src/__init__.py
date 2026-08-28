@@ -1,0 +1,1 @@
+"""Heat Intelligence application package."""

@@ -26,7 +26,10 @@ import pandas as pd
 from sklearn.ensemble import GradientBoostingRegressor
 from sklearn.metrics import mean_absolute_error, root_mean_squared_error
 
-from features import build_feature_table, add_time_features, add_lag_and_rolling_features, LAGS, ROLL_WINDOWS
+try:
+    from .features import build_feature_table, add_time_features, add_lag_and_rolling_features, LAGS, ROLL_WINDOWS
+except ImportError:
+    from features import build_feature_table, add_time_features, add_lag_and_rolling_features, LAGS, ROLL_WINDOWS
 
 FEATURE_COLS = (
     [f"temp_lag_{l}h" for l in LAGS]

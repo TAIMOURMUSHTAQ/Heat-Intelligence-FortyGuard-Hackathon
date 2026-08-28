@@ -12,11 +12,18 @@ from __future__ import annotations
 import joblib
 import pandas as pd
 
-from data_client import get_temperature_series
-from features import build_feature_table
-from forecasting import HeatForecaster
-from anomaly import HeatAnomalyDetector
-from risk_classifier import HeatRiskClassifier, TARGET_HORIZON_H
+try:
+    from .data_client import get_temperature_series
+    from .features import build_feature_table
+    from .forecasting import HeatForecaster
+    from .anomaly import HeatAnomalyDetector
+    from .risk_classifier import HeatRiskClassifier, TARGET_HORIZON_H
+except ImportError:
+    from data_client import get_temperature_series
+    from features import build_feature_table
+    from forecasting import HeatForecaster
+    from anomaly import HeatAnomalyDetector
+    from risk_classifier import HeatRiskClassifier, TARGET_HORIZON_H
 
 
 class HeatIntelligencePipeline:

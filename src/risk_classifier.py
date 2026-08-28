@@ -27,7 +27,10 @@ import pandas as pd
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.metrics import classification_report
 
-from forecasting import FEATURE_COLS  # reuse the same lag/rolling/time feature set
+try:
+    from .forecasting import FEATURE_COLS
+except ImportError:
+    from forecasting import FEATURE_COLS
 
 TARGET_COL = "risk_level"
 RISK_ORDER = ["low", "moderate", "high", "very_high", "extreme"]

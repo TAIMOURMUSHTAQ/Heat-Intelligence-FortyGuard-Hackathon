@@ -15,7 +15,10 @@ from __future__ import annotations
 
 from flask import Flask, jsonify, render_template, request
 
-from pipeline import HeatIntelligencePipeline
+try:
+    from .pipeline import HeatIntelligencePipeline
+except ImportError:
+    from pipeline import HeatIntelligencePipeline
 
 app = Flask(__name__)
 

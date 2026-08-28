@@ -1,78 +1,46 @@
 {
   "location": "Islamabad, PK",
   "source": "synthetic",
-  "as_of": "2026-08-28 13:00:00+00:00",
-  "current_temperature_c": 38.48,
-  "current_risk_level": "extreme",
-  "current_risk_confidence": 0.779,
+  "as_of": "2026-08-28 14:00:00+00:00",
+  "current_temperature_c": 38.2,
+  "current_risk_level": "very_high",
+  "current_risk_confidence": 0.61,
   "risk_horizon_hours": 1,
   "forecast": [
     {
-      "timestamp": "2026-08-28 14:00:00+00:00",
-      "forecast_temperature_c": 38.48,
+      "timestamp": "2026-08-28 15:00:00+00:00",
+      "forecast_temperature_c": 38.87,
       "step_ahead_h": 1
     },
     {
-      "timestamp": "2026-08-28 15:00:00+00:00",
-      "forecast_temperature_c": 38.68,
-      "step_ahead_h": 2
-    },
-    {
       "timestamp": "2026-08-28 16:00:00+00:00",
-      "forecast_temperature_c": 38.88,
-      "step_ahead_h": 3
-    },
-    {
-      "timestamp": "2026-08-28 17:00:00+00:00",
-      "forecast_temperature_c": 39.0,
-      "step_ahead_h": 4
-    },
-    {
-      "timestamp": "2026-08-28 18:00:00+00:00",
-      "forecast_temperature_c": 39.12,
-      "step_ahead_h": 5
-    },
-    {
-      "timestamp": "2026-08-28 19:00:00+00:00",
-      "forecast_temperature_c": 38.92,
-      "step_ahead_h": 6
+      "forecast_temperature_c": 39.01,
+      "step_ahead_h": 2
     }
   ],
   "recent_anomalies": [
     {
-      "timestamp": "2026-08-14 07:00:00+00:00",
-      "temperature_c": 34.92671172195213,
-      "z_score": 0.26780512369312814,
+      "timestamp": "2026-08-27 06:00:00+00:00",
+      "temperature_c": 29.196464985575535,
+      "z_score": -0.6354372584461819,
       "anomaly_reason": "isolation_forest"
     },
     {
-      "timestamp": "2026-08-14 08:00:00+00:00",
-      "temperature_c": 38.53971344348719,
-      "z_score": 1.0634386099295434,
+      "timestamp": "2026-08-27 10:00:00+00:00",
+      "temperature_c": 34.74596106445516,
+      "z_score": 0.6014159265063537,
       "anomaly_reason": "isolation_forest"
     },
     {
-      "timestamp": "2026-08-14 09:00:00+00:00",
-      "temperature_c": 33.19913034142591,
-      "z_score": -0.20635215935574286,
-      "anomaly_reason": "isolation_forest"
-    },
-    {
-      "timestamp": "2026-08-14 10:00:00+00:00",
-      "temperature_c": 35.09264253722095,
-      "z_score": 0.24544868630590586,
-      "anomaly_reason": "isolation_forest"
-    },
-    {
-      "timestamp": "2026-08-21 00:00:00+00:00",
-      "temperature_c": 27.993303129940433,
-      "z_score": -1.296196957888816,
+      "timestamp": "2026-08-28 11:00:00+00:00",
+      "temperature_c": 36.599785528754296,
+      "z_score": 0.7878478070964641,
       "anomaly_reason": "isolation_forest"
     }
   ],
   "anomaly_summary": {
-    "n_points": 696,
-    "n_anomalies": 18,
-    "anomaly_rate_pct": 2.59
+    "n_points": 48,
+    "n_anomalies": 3,
+    "anomaly_rate_pct": 6.25
   }
 }
