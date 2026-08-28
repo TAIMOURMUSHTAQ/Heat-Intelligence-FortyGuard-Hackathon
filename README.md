@@ -60,7 +60,7 @@ small Python/Flask apps. Any of these is enough for a hackathon demo link;
 you don't need AWS/GCP scale infrastructure for this.
 
 Two small things to do before deploying (not needed for local use):
-1. Use `gunicorn --chdir src api:app` as the start command — Flask's own
+1. Use `gunicorn --chdir src api:app --bind 0.0.0.0:$PORT` as the start command — Flask's own
   development server isn't meant to be exposed publicly. A ready-to-use
   `render.yaml` is included for Render.
 2. Set `FORTYGUARD_API_KEY` as an environment variable in the host's
