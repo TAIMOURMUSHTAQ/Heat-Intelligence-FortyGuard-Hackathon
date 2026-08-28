@@ -4,4 +4,8 @@ scikit-learn>=1.3
 flask>=3.0
 requests>=2.31
 joblib>=1.3
+<<<<<<< HEAD
 gunicorn>=22.0; sys_platform != "win32"
+=======
+gunicorn>=21.0
+>>>>>>> c16f060ca9dedafe16e8590f881d01a9edc20608
